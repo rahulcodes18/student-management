@@ -18,3 +18,30 @@
 3. Configure MySQL database
 4. Run Spring Boot application
 5. Test APIs using Postman
+
+6. # Student Management System
+
+## Technologies Used
+- Java
+- Spring Boot
+- Spring Data JPA (Hibernate)
+- MySQL
+- HTML
+- CSS
+- JavaScript
+- Git & GitHub
+
+## Features
+- Student CRUD Operations
+- Search by Name, Email, Department, City
+- Pagination
+- Sorting
+- Student Signup
+- Student Login
+- Student Logout
+- Dashboard
+
+## Tools
+- IntelliJ IDEA
+- MySQL Workbench
+- Postman
