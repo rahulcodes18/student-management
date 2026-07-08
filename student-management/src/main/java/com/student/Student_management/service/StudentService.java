@@ -40,9 +40,7 @@ public List<Student> searchByDepartment(String department) {
 public List<Student> searchByCity(String city) {
     return repository.findByCity(city);
 }
-public List<Student> getStudentsDesc(String field) {
-    return repository.findAll(Sort.by(Sort.Direction.DESC, field));
-}
+
 public Page<Student> getStudentsWithPagination(int page, int size) {
 
     Pageable pageable = PageRequest.of(page, size);
@@ -72,4 +70,18 @@ public List<Student> getStudentsDesc(String field) {
 public void deleteStudent(Long id) {
     repository.deleteById(id);
 }
+public Student login(String email, String password) {
+    return repository.findByEmailAndPassword(email, password);
+}
+public Student signup(Student student) {
+
+    Student existingStudent = repository.findByEmailAndPassword(student.getEmail(), student.getPassword());
+
+    if (existingStudent != null) {
+        return null;
+    }
+
+    return repository.save(student);
+}
+
 }

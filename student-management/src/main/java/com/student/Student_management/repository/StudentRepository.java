@@ -7,9 +7,18 @@ import java.util.List;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
-     List<Student> findByName(String name);
-     List<Student> findByEmail(String email);
-     List<Student> findByDepartment(String department);
-     List<Student> findByCity(String city);
+
+    List<Student> findByName(String name);
+
+    List<Student> findByEmail(String email);
+
+    List<Student> findByDepartment(String department);
+
+    List<Student> findByCity(String city);
+
+    Student findByEmailAndPassword(String email, String password);
+
+    // New Method for Signup
+    Student findFirstByEmail(String email);
 
 }

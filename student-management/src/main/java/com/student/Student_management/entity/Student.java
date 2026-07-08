@@ -14,6 +14,7 @@ public class Student {
     private String city;
     private String department;
     private String email;
+    private String password;
 
     public Student() {}
 
@@ -44,6 +45,7 @@ public class Student {
     return email;
 }
 
+
 public void setEmail(String email) {
     this.email = email;
 }
@@ -62,5 +64,12 @@ public String getDepartment() {
 
 public void setDepartment(String department) {
     this.department = department;
+}
+public String getPassword() {
+    return password;
+}
+
+public void setPassword(String password) {
+    this.password = password;
 }
 }

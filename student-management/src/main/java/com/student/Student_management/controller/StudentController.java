@@ -9,6 +9,8 @@ import com.student.Student_management.service.StudentService;
 
 import java.util.List;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 @RestController
 @RequestMapping("/students")
@@ -66,5 +68,35 @@ public List<Student> getStudentsAsc(@RequestParam String field) {
 @GetMapping("/sort/desc")
 public List<Student> getStudentsDesc(@RequestParam String field) {
     return service.getStudentsDesc(field);
+}
+@PostMapping("/login")
+public ResponseEntity<?> login(@RequestParam String email,
+                               @RequestParam String password) {
+
+    Student student = service.login(email, password);
+
+    if (student != null) {
+        return ResponseEntity.ok(student);
+    } else {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body("Invalid Email or Password");
+    }
+}
+@PostMapping("/signup")
+public ResponseEntity<?> signup(@RequestBody Student student) {
+
+    Student savedStudent = service.signup(student);
+
+    if (savedStudent != null) {
+        return ResponseEntity.ok(savedStudent);
+    }
+
+    return ResponseEntity.badRequest().body("Email Already Exists");
+}
+@PostMapping("/logout")
+public ResponseEntity<String> logout() {
+
+    return ResponseEntity.ok("Logout Successful");
+
 }
 }
