@@ -1,6 +1,7 @@
 package com.student.Student_management.service;
 
 import com.student.Student_management.entity.Student;
+import com.student.Student_management.exception.StudentNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -83,5 +84,11 @@ public Student signup(Student student) {
 
     return repository.save(student);
 }
+public Student getStudentById(Long id) {
+
+    return repository.findById(id)
+            .orElseThrow(() -> new StudentNotFoundException("Student Not Found"));
+}
+
 
 }
