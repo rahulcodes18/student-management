@@ -54,14 +54,18 @@ public List<Student> getStudentsAsc(String field) {
 public List<Student> getStudentsDesc(String field) {
     return repository.findAll(Sort.by(Sort.Direction.DESC, field));
 }
-
-    public Student updateStudent(Long id, Student student) {
+public Student updateStudent(Long id, Student student) {
 
     Student existingStudent = repository.findById(id).orElse(null);
 
     if (existingStudent != null) {
+
         existingStudent.setName(student.getName());
         existingStudent.setCourse(student.getCourse());
+        existingStudent.setCity(student.getCity());
+        existingStudent.setDepartment(student.getDepartment());
+        existingStudent.setEmail(student.getEmail());
+        existingStudent.setPassword(student.getPassword());
 
         return repository.save(existingStudent);
     }
@@ -89,6 +93,7 @@ public Student getStudentById(Long id) {
     return repository.findById(id)
             .orElseThrow(() -> new StudentNotFoundException("Student Not Found"));
 }
+
 
 
 }
