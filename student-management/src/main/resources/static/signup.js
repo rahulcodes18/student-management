@@ -34,10 +34,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 document.getElementById("signupForm").reset();
 
+                // Redirect only after successful signup
+                setTimeout(() => {
+                    window.location.href = "login.html";
+                }, 1500);
+
             } else {
 
-                document.getElementById("message").innerHTML = "❌ Email Already Exists";
-                document.getElementById("message").style.color = "red";
+                return response.text().then(message => {
+
+                    document.getElementById("message").innerHTML = "❌ " + message;
+                    document.getElementById("message").style.color = "red";
+
+                });
 
             }
 
@@ -45,15 +54,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         .catch(error => {
 
-            console.log(error);
+            console.error(error);
 
             document.getElementById("message").innerHTML = "❌ Server Error";
             document.getElementById("message").style.color = "red";
 
         });
-        setTimeout(() => {
-    window.location.href = "login.html";
-}, 1500);
 
     });
 

@@ -31,6 +31,8 @@ public class Student {
     @NotBlank(message = "Password is required")
     @Size(min = 5, message = "Password must be at least 5 characters")
     private String password;
+    @NotBlank(message = "Status is required")
+     private String status;
 
     public Student() {
     }
@@ -90,4 +92,11 @@ public class Student {
     public void setPassword(String password) {
         this.password = password;
     }
+    public String getStatus() {
+    return status;
+}
+
+public void setStatus(String status) {
+    this.status = status;
+}
 }

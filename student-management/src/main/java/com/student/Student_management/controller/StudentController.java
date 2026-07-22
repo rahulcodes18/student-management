@@ -123,4 +123,8 @@ public ResponseEntity<?> getStudentById(@PathVariable Long id) {
     return ResponseEntity.status(HttpStatus.NOT_FOUND)
             .body("Student Not Found");
 }
+@GetMapping("/filter/status")
+public List<Student> filterByStatus(@RequestParam String status) {
+    return service.filterByStatus(status);
+}
 }

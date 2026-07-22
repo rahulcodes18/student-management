@@ -3,50 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
 
-<div class="login-box">
+    <!-- Sidebar -->
+    <div class="sidebar">
 
-    <h2>🎓 Student Management System</h2>
+        <h2>SMS</h2>
 
-    <h3>Welcome to Dashboard</h3>
+        <ul>
 
-    <hr>
+            <li>
+                <a href="#" id="dashboardBtn">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+            </li>
 
-    <button onclick="window.location.href='signup.html'">
-        Register New Student
-    </button>
-    <button onclick="logout()">
-        Logout
-    </button>
+            <li>
+                <a href="#" id="studentsBtn">
+                    <i class="fa-solid fa-user-graduate"></i> Students
+                </a>
+            </li>
+
+            <li>
+                <a href="#" id="viewStudents">
+                    <i class="fa-solid fa-list"></i> View Students
+                </a>
+            </li>
+
+            <li>
+                <a href="#" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Header -->
+        <div class="header">
+            <h1>Student Management System</h1>
+            <h3>Welcome Rahul 👋</h3>
+        </div>
+
+        <!-- Cards -->
+        <div class="cards">
+
+            <div class="card">
+                <h2>Total Students</h2>
+                <p id="totalStudents">0</p>
+            </div>
+
+            <div class="card">
+                <h2>Active Records</h2>
+                <p id="activeStudents">0</p>
+            </div>
+
+            <div class="card">
+                <h2>Recently Added</h2>
+                <p id="recentStudents">0</p>
+            </div>
+
+        </div>
+
+        <!-- Table -->
+        <div class="table-container" id="tableContainer">
+
+            <h2 id="tableTitle">Students</h2>
+            <div class="filter-box">
+                
+    <div class="filter-box">
+
+    <input type="text"
+           id="searchBox"
+           placeholder="Search Student by Name">
+
+    <select id="statusFilter">
+
+        <option value="ALL">All Users</option>
+        <option value="ACTIVE">Active Users</option>
+        <option value="INACTIVE">Inactive Users</option>
+
+    </select>
 
 </div>
 
-<script>
+</div>
 
-function logout(){
+            <table>
 
-fetch("http://localhost:8080/students/logout",{
+                <thead>
 
-method:"POST"
+                    <tr>
 
-})
-.then(response=>response.text())
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Course</th>
+                        <th>Department</th>
+                        <th>Actions</th>
 
-.then(data=>{
+                    </tr>
 
-alert(data);
+                </thead>
 
-window.location.href="login.html";
+                <tbody id="studentTable">
 
-});
+                </tbody>
 
-}
+            </table>
 
-</script>
+        </div>
+
+    </div>
+
+   
+
+    <script src="dashboard.js"></script>
+    <!-- Edit Student Modal -->
+
+<div id="editModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close">&times;</span>
+
+        <h2>Edit Student</h2>
+
+        <input type="hidden" id="editId">
+
+        <input type="text" id="editName" placeholder="Name">
+
+        <input type="email" id="editEmail" placeholder="Email">
+
+        <input type="text" id="editCourse" placeholder="Course">
+
+        <input type="text" id="editDepartment" placeholder="Department">
+
+        <input type="text" id="editCity" placeholder="City">
+
+        <select id="editStatus">
+            <option value="ACTIVE">ACTIVE</option>
+            <option value="INACTIVE">INACTIVE</option>
+        </select>
+
+        <button id="updateBtn">Update Student</button>
+
+    </div>
+
+</div>
 
 </body>
 </html>
