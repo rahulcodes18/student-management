@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
             password: document.getElementById("password").value,
             course: document.getElementById("course").value,
             department: document.getElementById("department").value,
-            city: document.getElementById("city").value
+            city: document.getElementById("city").value,
+            status: "ACTIVE"
         };
 
         fetch("http://localhost:8080/students/signup", {

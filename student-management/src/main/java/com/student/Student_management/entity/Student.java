@@ -31,7 +31,6 @@ public class Student {
     @NotBlank(message = "Password is required")
     @Size(min = 5, message = "Password must be at least 5 characters")
     private String password;
-    @NotBlank(message = "Status is required")
      private String status;
 
     public Student() {
