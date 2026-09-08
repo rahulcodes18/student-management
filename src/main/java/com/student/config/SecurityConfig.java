@@ -132,29 +132,37 @@ public class SecurityConfig {
                 // =================================================
 
                 .requestMatchers(
-                        "/",
-                        "/login",
-                        "/register",
-                        "/forgot-password",
-                        "/verify-otp",
-                        "/reset-password",
-                        "/api/auth/**",
-                        "/css/**",
-                        "/js/**",
-                        "/images/**",
-                        "/uploads/**"
-                )
-                .permitAll()
-
+        "/",
+        "/login",
+        "/register",
+        "/forgot-password",
+        "/verify-otp",
+        "/reset-password",
+        "/api/auth/**",
+        "/api/ai/**",
+        "/css/**",
+        "/js/**",
+        "/images/**",
+        "/uploads/**"
+)
+.permitAll()
 
                 // =================================================
                 // AUDIT LOG API - ADMIN ONLY
                 // =================================================
 
-                .requestMatchers(
-                        "/api/audit-logs/**"
-                )
-                .hasRole("ADMIN")
+                // AUDIT LOG API - ADMIN ONLY
+.requestMatchers(
+        "/api/audit-logs/**"
+)
+.hasRole("ADMIN")
+
+
+// AI API - STUDENT + ADMIN
+.requestMatchers(
+        "/api/ai/**"
+)
+.hasAnyRole("STUDENT", "ADMIN")
 
 
                 // =================================================

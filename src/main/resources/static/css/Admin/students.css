@@ -667,3 +667,27 @@ body{
     background:#334155;
     color:white;
 }
+/* ================= AI BUTTON ================= */
+
+.ai-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    margin-top: 10px;
+
+    color: #E2E8F0;
+    text-decoration: none;
+
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.ai-button:hover {
+    background: #3B82F6;
+    color: white;
+}
+
+.ai-button i {
+    width: 20px;
+}
