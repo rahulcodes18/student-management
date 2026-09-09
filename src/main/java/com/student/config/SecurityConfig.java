@@ -132,37 +132,39 @@ public class SecurityConfig {
                 // =================================================
 
                 .requestMatchers(
-        "/",
-        "/login",
-        "/register",
-        "/forgot-password",
-        "/verify-otp",
-        "/reset-password",
-        "/api/auth/**",
-        "/api/ai/**",
-        "/css/**",
-        "/js/**",
-        "/images/**",
-        "/uploads/**"
-)
-.permitAll()
+                        "/",
+                        "/login",
+                        "/register",
+                        "/forgot-password",
+                        "/verify-otp",
+                        "/reset-password",
+                        "/api/auth/**",
+                        "/css/**",
+                        "/js/**",
+                        "/images/**",
+                        "/uploads/**"
+                )
+                .permitAll()
+
 
                 // =================================================
                 // AUDIT LOG API - ADMIN ONLY
                 // =================================================
 
-                // AUDIT LOG API - ADMIN ONLY
-.requestMatchers(
-        "/api/audit-logs/**"
-)
-.hasRole("ADMIN")
+                .requestMatchers(
+                        "/api/audit-logs/**"
+                )
+                .hasRole("ADMIN")
 
 
-// AI API - STUDENT + ADMIN
-.requestMatchers(
-        "/api/ai/**"
-)
-.hasAnyRole("STUDENT", "ADMIN")
+                // =================================================
+                // AI API - STUDENT + ADMIN
+                // =================================================
+
+                .requestMatchers(
+                        "/api/ai/**"
+                )
+                .hasAnyRole("STUDENT", "ADMIN")
 
 
                 // =================================================
@@ -195,9 +197,6 @@ public class SecurityConfig {
 
                 // =================================================
                 // CHANGE PASSWORD - STUDENT ONLY
-                //
-                // IMPORTANT:
-                // This must come BEFORE the general PUT rule
                 // =================================================
 
                 .requestMatchers(
@@ -209,7 +208,6 @@ public class SecurityConfig {
 
                 // =================================================
                 // UPDATE STUDENT - ADMIN ONLY
-                // PUT /api/students/{id}
                 // =================================================
 
                 .requestMatchers(
@@ -222,7 +220,6 @@ public class SecurityConfig {
 
                 // =================================================
                 // DELETE STUDENT - ADMIN ONLY
-                // DELETE /api/students/{id}
                 // =================================================
 
                 .requestMatchers(

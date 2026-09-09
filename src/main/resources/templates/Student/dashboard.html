@@ -3,700 +3,795 @@
 
 <head>
 
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>Student Dashboard</title>
+    <title>Student Dashboard</title>
 
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-	<!-- =====================================================
-         FONT AWESOME
-         ===================================================== -->
-
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-
-	<!-- =====================================================
-         STUDENT DASHBOARD CSS
-         ===================================================== -->
-
-	<link rel="stylesheet" th:href="@{/css/Student/dashboard.css}">
+    <!-- STUDENT DASHBOARD CSS -->
+    <link rel="stylesheet"
+          th:href="@{/css/Student/dashboard.css}">
 
 </head>
 
 
 <body>
 
+<div class="container">
 
-	<div class="container">
 
-
-		<!-- =====================================================
+    <!-- =====================================================
          SIDEBAR
          ===================================================== -->
 
-		<aside class="sidebar">
+    <aside class="sidebar">
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <h2>Student Portal</h2>
+
+        </div>
 
 
-			<!-- LOGO -->
+        <!-- MENU -->
 
-			<div class="logo">
-
-				<h2>Student Portal</h2>
-
-			</div>
+        <ul class="menu">
 
 
-			<!-- MENU -->
+            <!-- DASHBOARD -->
 
-			<ul class="menu">
+            <li class="active">
 
+                <a th:href="@{/student/page}">
 
-				<!-- DASHBOARD -->
+                    <i class="fa-solid fa-house"></i>
 
-				<li class="active">
+                    <span>Dashboard</span>
 
-					<a th:href="@{/student/page}">
+                </a>
 
-						<i class="fa-solid fa-house"></i>
-
-						<span>Dashboard</span>
-
-					</a>
-
-				</li>
+            </li>
 
 
-				<!-- VIEW PROFILE -->
+            <!-- VIEW PROFILE -->
 
-				<li>
+            <li>
 
-					<a th:href="@{/student/profile}">
+                <a th:href="@{/student/profile}">
 
-						<i class="fa-solid fa-user"></i>
+                    <i class="fa-solid fa-user"></i>
 
-						<span>View Profile</span>
+                    <span>View Profile</span>
 
-					</a>
+                </a>
 
-				</li>
-
-
-				<!-- EDIT PROFILE -->
-
-				<li>
-
-					<a th:href="@{/student/edit-profile}">
-
-						<i class="fa-solid fa-user-pen"></i>
-
-						<span>Edit Profile</span>
-
-					</a>
-
-				</li>
+            </li>
 
 
-				<!-- CHANGE PASSWORD -->
+            <!-- EDIT PROFILE -->
 
-				<li>
+            <li>
 
-					<a th:href="@{/student/change-password}">
+                <a th:href="@{/student/edit-profile}">
 
-						<i class="fa-solid fa-key"></i>
+                    <i class="fa-solid fa-user-pen"></i>
 
-						<span>Change Password</span>
+                    <span>Edit Profile</span>
 
-					</a>
+                </a>
 
-				</li>
-
-
-				<!-- LOGOUT -->
-
-				<li>
-
-					<a th:href="@{/logout}">
-
-						<i class="fa-solid fa-right-from-bracket"></i>
-
-						<span>Logout</span>
-
-					</a>
-
-				</li>
+            </li>
 
 
-			</ul>
+            <!-- CHANGE PASSWORD -->
+
+            <li>
+
+                <a th:href="@{/student/change-password}">
+
+                    <i class="fa-solid fa-key"></i>
+
+                    <span>Change Password</span>
+
+                </a>
+
+            </li>
 
 
-			<!-- =================================================
-             SIDEBAR FOOTER
-             ================================================= -->
+            <!-- LOGOUT -->
 
-			<div class="sidebar-footer">
+            <li>
 
-				<p>
-					Student Management System
-				</p>
+                <a th:href="@{/logout}">
 
-				<small>
-					Version 1.0
-				</small>
+                    <i class="fa-solid fa-right-from-bracket"></i>
 
-			</div>
+                    <span>Logout</span>
+
+                </a>
+
+            </li>
+
+        </ul>
 
 
-		</aside>
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="sidebar-footer">
+
+            <p>
+                Student Management System
+            </p>
+
+            <small>
+                Version 1.0
+            </small>
+
+        </div>
+
+    </aside>
 
 
 
-		<!-- =====================================================
+    <!-- =====================================================
          MAIN CONTENT
          ===================================================== -->
 
-		<main class="main-content">
+    <main class="main-content">
 
 
-			<!-- =================================================
+        <!-- =================================================
              HEADER
              ================================================= -->
 
-			<header class="topbar">
+        <header class="topbar">
 
 
-				<!-- WELCOME -->
+            <!-- WELCOME -->
 
-				<div class="welcome">
+            <div class="welcome">
 
-					<h1>
+                <h1>
 
-						Welcome,
+                    Welcome,
 
-						<span th:text="${student.name}">
-							Student
-						</span>
+                    <span th:text="${student.name}">
+                        Student
+                    </span>
 
-						👋
+                    👋
 
-					</h1>
-
-
-					<p>
-						Welcome back!
-					</p>
-
-				</div>
+                </h1>
 
 
+                <p>
+                    Welcome back!
+                </p>
 
-				<!-- =================================================
-                 HEADER RIGHT
-                 ================================================= -->
-
-				<div class="header-right">
-
-
-					<!-- NOTIFICATION -->
-
-					<div class="notification">
-
-						<i class="fa-regular fa-bell"></i>
-
-					</div>
+            </div>
 
 
 
-					<!-- USER INFORMATION -->
+            <!-- HEADER RIGHT -->
 
-					<div class="user-info">
-
-
-						<!-- PROFILE IMAGE -->
-
-						<div class="profile-avatar">
+            <div class="header-right">
 
 
-							<img th:if="${student.profilePhoto != null and !student.profilePhoto.isEmpty()}"
-								th:src="@{/uploads/Profile/Student photos/{filename}(filename=${student.profilePhoto})}"
-								class="profile-img" alt="Profile">
+                <!-- NOTIFICATION -->
 
+                <div class="notification">
 
-							<img th:unless="${student.profilePhoto != null and !student.profilePhoto.isEmpty()}"
-								th:src="@{/images/default-profile.png}" class="profile-img" alt="Profile">
+                    <i class="fa-regular fa-bell"></i>
 
-
-						</div>
+                </div>
 
 
 
-						<!-- USER DETAILS -->
+                <!-- USER INFORMATION -->
 
-						<div class="user-details">
-
-
-							<h4 th:text="${student.name}">
-								Student
-							</h4>
+                <div class="user-info">
 
 
-							<small>
-								Student
-							</small>
+                    <!-- PROFILE IMAGE -->
+
+                    <div class="profile-avatar">
+
+                        <img th:if="${student.profilePhoto != null and !student.profilePhoto.isEmpty()}"
+                             th:src="@{/uploads/Profile/Student photos/{filename}(filename=${student.profilePhoto})}"
+                             class="profile-img"
+                             alt="Profile">
 
 
-						</div>
+                        <img th:unless="${student.profilePhoto != null and !student.profilePhoto.isEmpty()}"
+                             th:src="@{/images/default-profile.png}"
+                             class="profile-img"
+                             alt="Profile">
 
-
-					</div>
-
-
-				</div>
-
-
-			</header>
+                    </div>
 
 
 
-			<!-- =====================================================
+                    <!-- USER DETAILS -->
+
+                    <div class="user-details">
+
+                        <h4 th:text="${student.name}">
+                            Student
+                        </h4>
+
+                        <small>
+                            Student
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
              DASHBOARD CARDS
              ===================================================== -->
 
-			<div class="dashboard-cards">
+        <div class="dashboard-cards">
 
 
-				<!-- =================================================
-                 CARD 1 - MY PROFILE
-                 ================================================= -->
+            <!-- CARD 1 -->
 
-				<div class="dashboard-card">
+            <div class="dashboard-card">
 
+                <div class="card-icon">
 
-					<div class="card-icon">
+                    <i class="fa-solid fa-user"></i>
 
-						<i class="fa-solid fa-user"></i>
+                </div>
 
-					</div>
 
+                <div class="card-content">
 
-					<div class="card-content">
+                    <h4>
+                        My Profile
+                    </h4>
 
+                    <h2>
+                        100%
+                    </h2>
 
-						<h4>
-							My Profile
-						</h4>
+                </div>
 
+            </div>
 
-						<h2>
-							100%
-						</h2>
 
 
-					</div>
+            <!-- CARD 2 -->
 
+            <div class="dashboard-card">
 
-				</div>
+                <div class="card-icon">
 
+                    <i class="fa-solid fa-building"></i>
 
+                </div>
 
-				<!-- =================================================
-                 CARD 2 - DEPARTMENT
-                 ================================================= -->
 
-				<div class="dashboard-card">
+                <div class="card-content">
 
+                    <h4>
+                        Department
+                    </h4>
 
-					<div class="card-icon">
+                    <h2 class="department-text"
+                        th:text="${student.department}">
 
-						<i class="fa-solid fa-building"></i>
+                        IT
 
-					</div>
+                    </h2>
 
+                </div>
 
-					<div class="card-content">
+            </div>
 
 
-						<h4>
-							Department
-						</h4>
 
+            <!-- CARD 3 -->
 
-						<h2 class="department-text" th:text="${student.department}">
+            <div class="dashboard-card">
 
-							IT
+                <div class="card-icon">
 
-						</h2>
+                    <i class="fa-solid fa-circle-check"></i>
 
+                </div>
 
-					</div>
 
+                <div class="card-content">
 
-				</div>
+                    <h4>
+                        Account Status
+                    </h4>
 
+                    <h2 class="status-text"
+                        th:text="${student.status}">
 
+                        ACTIVE
 
-				<!-- =================================================
-                 CARD 3 - ACCOUNT STATUS
-                 ================================================= -->
+                    </h2>
 
-				<div class="dashboard-card">
+                </div>
 
+            </div>
 
-					<div class="card-icon">
 
-						<i class="fa-solid fa-circle-check"></i>
 
-					</div>
+            <!-- CARD 4 -->
 
+            <div class="dashboard-card">
 
-					<div class="card-content">
+                <div class="card-icon">
 
+                    <i class="fa-solid fa-calendar"></i>
 
-						<h4>
-							Account Status
-						</h4>
+                </div>
 
 
-						<h2 class="status-text" th:text="${student.status}">
+                <div class="card-content">
 
-							ACTIVE
+                    <h4>
+                        Joined Date
+                    </h4>
 
-						</h2>
+                    <h2 class="department-text"
+                        th:text="${#temporals.format(student.createdDate,'dd-MM-yyyy')}">
 
+                        07-08-2026
 
-					</div>
+                    </h2>
 
+                </div>
 
-				</div>
+            </div>
 
 
+        </div>
 
-				<!-- =================================================
-                 CARD 4 - JOINED DATE
-                 ================================================= -->
 
-				<div class="dashboard-card">
 
-
-					<div class="card-icon">
-
-						<i class="fa-solid fa-calendar"></i>
-
-					</div>
-
-
-					<div class="card-content">
-
-
-						<h4>
-							Joined Date
-						</h4>
-
-
-						<h2 class="department-text" th:text="${#temporals.format(student.createdDate,'dd-MM-yyyy')}">
-
-							07-08-2026
-
-						</h2>
-
-
-					</div>
-
-
-				</div>
-
-
-			</div>
-
-
-
-			<!-- =====================================================
+        <!-- =====================================================
              STUDENT INFORMATION SECTION
              ===================================================== -->
 
-			<section class="student-info-section">
+        <section class="student-info-section">
 
 
-				<!-- =================================================
-                 PROFILE COMPLETION
-                 ================================================= -->
+            <!-- PROFILE COMPLETION -->
 
-				<div class="info-card profile-completion-card">
+            <div class="info-card profile-completion-card">
 
 
-					<!-- CARD HEADER -->
+                <div class="info-card-header">
 
-					<div class="info-card-header">
+                    <div>
 
+                        <h3>
+                            Profile Completion
+                        </h3>
 
-						<div>
+                        <p>
+                            Keep your profile information up to date
+                        </p>
 
-							<h3>
-								Profile Completion
-							</h3>
+                    </div>
 
 
-							<p>
-								Keep your profile information up to date
-							</p>
+                    <div class="completion-percentage">
 
-						</div>
+                        100%
 
+                    </div>
 
-						<div class="completion-percentage">
+                </div>
 
-							100%
 
-						</div>
 
+                <!-- PROGRESS BAR -->
 
-					</div>
+                <div class="progress-container">
 
+                    <div class="progress-bar">
 
+                        <div class="progress-fill"
+                             style="width: 100%;">
+                        </div>
 
-					<!-- =================================================
-                     PROGRESS BAR
-                     ================================================= -->
+                    </div>
 
-					<div class="progress-container">
+                </div>
 
 
-						<div class="progress-bar">
 
+                <!-- COMPLETION STATUS -->
 
-							<div class="progress-fill" style="width: 100%;">
-							</div>
+                <div class="completion-status">
 
+                    <i class="fa-solid fa-circle-check"></i>
 
-						</div>
+                    <span>
+                        Your profile is complete
+                    </span>
 
+                </div>
 
-					</div>
+            </div>
 
 
 
-					<!-- =================================================
-                     COMPLETION STATUS
-                     ================================================= -->
+            <!-- RECENT ACCOUNT ACTIVITY -->
 
-					<div class="completion-status">
+            <div class="info-card activity-card">
 
 
-						<i class="fa-solid fa-circle-check"></i>
+                <div class="info-card-header">
 
+                    <div>
 
-						<span>
-							Your profile is complete
-						</span>
+                        <h3>
+                            Recent Account Activity
+                        </h3>
 
+                        <p>
+                            Latest activity on your account
+                        </p>
 
-					</div>
+                    </div>
 
 
-				</div>
+                    <div class="activity-icon">
 
+                        <i class="fa-solid fa-clock-rotate-left"></i>
 
+                    </div>
 
-				<!-- =================================================
-                 RECENT ACCOUNT ACTIVITY
-                 ================================================= -->
+                </div>
 
-				<div class="info-card activity-card">
 
 
-					<!-- CARD HEADER -->
+                <!-- ACTIVITY LIST -->
 
-					<div class="info-card-header">
+                <div class="activity-list">
 
 
-						<div>
+                    <!-- ACCOUNT REGISTERED -->
 
-							<h3>
-								Recent Account Activity
-							</h3>
+                    <div class="activity-item">
 
+                        <div class="activity-check">
 
-							<p>
-								Latest activity on your account
-							</p>
+                            <i class="fa-solid fa-check"></i>
 
-						</div>
+                        </div>
 
 
-						<div class="activity-icon">
+                        <div class="activity-details">
 
-							<i class="fa-solid fa-clock-rotate-left"></i>
+                            <span>
+                                Account registered
+                            </span>
 
-						</div>
+                            <small th:text="${#temporals.format(student.createdDate,'dd-MM-yyyy')}">
 
+                                07-08-2026
 
-					</div>
+                            </small>
 
+                        </div>
 
+                    </div>
 
-					<!-- =================================================
-                     ACTIVITY LIST
-                     ================================================= -->
 
-					<div class="activity-list">
 
+                    <!-- PROFILE UPDATED -->
 
-						<!-- =================================================
-                         ACCOUNT REGISTERED
-                         ================================================= -->
+                    <div class="activity-item"
+                         th:if="${student.updatedDate != null}">
 
-						<div class="activity-item">
+                        <div class="activity-check">
 
+                            <i class="fa-solid fa-check"></i>
 
-							<div class="activity-check">
+                        </div>
 
-								<i class="fa-solid fa-check"></i>
 
-							</div>
+                        <div class="activity-details">
 
+                            <span>
+                                Profile updated
+                            </span>
 
-							<div class="activity-details">
+                            <small th:text="${#temporals.format(student.updatedDate,'dd-MM-yyyy')}">
 
+                                Recently
 
-								<span>
-									Account registered
-								</span>
+                            </small>
 
+                        </div>
 
-								<small th:text="${#temporals.format(student.createdDate,'dd-MM-yyyy')}">
+                    </div>
 
-									07-08-2026
 
-								</small>
 
+                    <!-- PROFILE PHOTO ADDED -->
 
-							</div>
+                    <div class="activity-item"
+                         th:if="${student.profilePhoto != null and !student.profilePhoto.isEmpty()}">
 
+                        <div class="activity-check">
 
-						</div>
+                            <i class="fa-solid fa-check"></i>
 
+                        </div>
 
 
-						<!-- =================================================
-                         PROFILE UPDATED
-                         ================================================= -->
+                        <div class="activity-details">
 
-						<div class="activity-item" th:if="${student.updatedDate != null}">
+                            <span>
+                                Profile photo added
+                            </span>
 
+                            <small>
+                                Profile updated
+                            </small>
 
-							<div class="activity-check">
+                        </div>
 
-								<i class="fa-solid fa-check"></i>
+                    </div>
 
-							</div>
 
 
-							<div class="activity-details">
+                    <!-- ACCOUNT STATUS -->
 
+                    <div class="activity-item">
 
-								<span>
-									Profile updated
-								</span>
+                        <div class="activity-check">
 
+                            <i class="fa-solid fa-check"></i>
 
-								<small th:text="${#temporals.format(student.updatedDate,'dd-MM-yyyy')}">
+                        </div>
 
-									Recently
 
-								</small>
+                        <div class="activity-details">
 
+                            <span>
+                                Account status
+                            </span>
 
-							</div>
+                            <small th:text="${student.status}">
 
+                                ACTIVE
 
-						</div>
+                            </small>
 
+                        </div>
 
+                    </div>
 
-						<!-- =================================================
-                         PROFILE PHOTO ADDED
-                         ================================================= -->
 
-						<div class="activity-item"
-							th:if="${student.profilePhoto != null and !student.profilePhoto.isEmpty()}">
+                </div>
 
+            </div>
 
-							<div class="activity-check">
 
-								<i class="fa-solid fa-check"></i>
+        </section>
 
-							</div>
 
 
-							<div class="activity-details">
+        <!-- =====================================================
+             AI STUDENT ASSISTANT
+             ===================================================== -->
 
+        <section class="ai-assistant-section">
 
-								<span>
-									Profile photo added
-								</span>
+            <div class="ai-card">
 
 
-								<small>
-									Profile updated
-								</small>
+                <!-- AI HEADER -->
 
+                <div class="ai-header">
 
-							</div>
+                    <div class="ai-icon">
 
+                        🤖
 
-						</div>
+                    </div>
 
+                    <div>
 
+                        <h2>
+                            AI Student Assistant
+                        </h2>
 
-						<!-- =================================================
-                         ACCOUNT STATUS
-                         ================================================= -->
+                        <p>
+                            Ask questions about Java, SQL, programming,
+                            interviews and studies.
+                        </p>
 
-						<div class="activity-item">
+                    </div>
 
+                </div>
 
-							<div class="activity-check">
 
-								<i class="fa-solid fa-check"></i>
 
-							</div>
+                <!-- AI INPUT -->
 
+                <div class="ai-input-area">
 
-							<div class="activity-details">
+                    <textarea
+                            id="aiQuestion"
+                            rows="4"
+                            placeholder="Ask something... e.g. Explain Java inheritance in simple words">
+                    </textarea>
 
 
-								<span>
-									Account status
-								</span>
+                    <button
+                            type="button"
+                            id="aiButton"
+                            onclick="askAI()">
 
+                        <i class="fa-solid fa-robot"></i>
 
-								<small th:text="${student.status}">
+                        Ask AI
 
-									ACTIVE
+                    </button>
 
-								</small>
+                </div>
 
 
-							</div>
 
+                <!-- LOADING -->
 
-						</div>
+                <div
+                        id="aiLoading"
+                        class="ai-loading"
+                        style="display: none;">
 
+                    <i class="fa-solid fa-spinner fa-spin"></i>
 
-					</div>
+                    AI is thinking...
 
+                </div>
 
-				</div>
 
 
-			</section>
+                <!-- RESPONSE -->
 
+                <div
+                        id="aiResponse"
+                        class="ai-response"
+                        style="display: none;">
 
-		</main>
+                </div>
 
 
-	</div>
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     AI JAVASCRIPT
+     ===================================================== -->
+
+<script>
+
+async function askAI() {
+
+    const questionInput =
+        document.getElementById("aiQuestion");
+
+    const responseBox =
+        document.getElementById("aiResponse");
+
+    const loading =
+        document.getElementById("aiLoading");
+
+    const button =
+        document.getElementById("aiButton");
+
+
+    const question =
+        questionInput.value.trim();
+
+
+    if (!question) {
+
+        alert("Please enter your question.");
+
+        return;
+    }
+
+
+    button.disabled = true;
+
+    loading.style.display = "block";
+
+    responseBox.style.display = "none";
+
+
+    try {
+
+        const response = await fetch("/api/ai/ask", {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type": "application/json"
+
+            },
+
+            body: JSON.stringify({
+
+                question: question
+
+            })
+
+        });
+
+
+        const result =
+            await response.text();
+
+
+        if (!response.ok) {
+
+            throw new Error(result);
+
+        }
+
+
+        responseBox.innerText = result;
+
+        responseBox.style.display = "block";
+
+
+    } catch (error) {
+
+        console.error("AI Error:", error);
+
+        responseBox.innerText =
+            error.message || "Unable to get AI response.";
+
+        responseBox.style.display = "block";
+
+
+    } finally {
+
+        button.disabled = false;
+
+        loading.style.display = "none";
+
+    }
+
+}
+
+</script>
 
 
 </body>

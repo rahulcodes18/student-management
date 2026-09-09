@@ -19,7 +19,10 @@
 
 <body>
 
-<!-- Sidebar -->
+<!-- =====================================================
+     SIDEBAR
+     ===================================================== -->
+
 <div class="sidebar">
 
     <h3>
@@ -27,207 +30,379 @@
         Student Management System
     </h3>
 
-   <a href="/student/dashboard">
-    <i class="fa-solid fa-chart-line"></i>
-    Dashboard
-</a>
+
+    <!-- DASHBOARD -->
+
+    <a href="/student/dashboard">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+        Dashboard
+
+    </a>
+
+
+    <!-- STUDENT RECORDS -->
 
     <a href="/students">
+
         <i class="fa-solid fa-users"></i>
+
         Student Records
+
     </a>
+
+
+    <!-- ADD STUDENT -->
 
     <a href="/register">
+
         <i class="fa-solid fa-user-plus"></i>
+
         Add Student
+
     </a>
 
+
+    <!-- SEARCH -->
+
     <a href="#">
+
         <i class="fa-solid fa-magnifying-glass"></i>
+
         Search Students
+
     </a>
 
+
+    <!-- REPORTS -->
+
     <a href="#">
+
         <i class="fa-solid fa-file-lines"></i>
+
         Reports
+
     </a>
+
+
+    <!-- SETTINGS -->
 
     <a href="#">
+
         <i class="fa-solid fa-gear"></i>
+
         Settings
+
     </a>
 
-   <a href="/logout">
-    <i class="fa-solid fa-right-from-bracket"></i>
-    Logout
-</a>
 
-<a href="/ai.html" class="ai-button">
-    🤖 Ask AI
-</a>
+    <!-- LOGOUT -->
 
+    <a href="/logout">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Logout
+
+    </a>
 
 </div>
-</div>
 
-<!-- Main Content -->
+
+
+<!-- =====================================================
+     MAIN CONTENT
+     ===================================================== -->
+
 <div class="main">
 
-    <!-- Header -->
+
+    <!-- =================================================
+         HEADER
+         ================================================= -->
+
     <div class="header d-flex justify-content-between align-items-center">
 
         <div>
 
-            <h2>Dashboard</h2>
+            <h2>
+                Dashboard
+            </h2>
 
             <p>
+
                 Welcome,
+
                 <b th:text="${student.name}"></b>
+
             </p>
 
         </div>
 
-       <a href="/logout">
-    <i class="fa-solid fa-right-from-bracket"></i>
-    Logout
-</a>
 
-<a href="/ai.html">
-    🤖 Ask AI
-</a>
+        <!-- HEADER LOGOUT -->
+
+        <a href="/logout">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </a>
 
     </div>
 
-    <!-- Statistics Cards -->
+
+
+    <!-- =====================================================
+         STATISTICS CARDS
+         ===================================================== -->
+
     <div class="row mt-4">
+
+
+        <!-- TOTAL STUDENTS -->
 
         <div class="col-md-4">
 
             <div class="stat-card total-card">
 
+
                 <div class="card-icon">
+
                     <i class="fa-solid fa-user-graduate"></i>
+
                 </div>
 
+
                 <div>
-                    <h5>Total Students</h5>
-                    <h2 th:text="${totalStudents}"></h2>
+
+                    <h5>
+                        Total Students
+                    </h5>
+
+                    <h2 th:text="${totalStudents}">
+                    </h2>
+
                 </div>
+
 
             </div>
 
         </div>
+
+
+
+        <!-- ACTIVE RECORDS -->
 
         <div class="col-md-4">
 
             <div class="stat-card active-card">
 
+
                 <div class="card-icon">
+
                     <i class="fa-solid fa-user-check"></i>
+
                 </div>
 
+
                 <div>
-                    <h5>Active Records</h5>
-                    <h2 th:text="${activeRecords}"></h2>
+
+                    <h5>
+                        Active Records
+                    </h5>
+
+                    <h2 th:text="${activeRecords}">
+                    </h2>
+
                 </div>
+
 
             </div>
 
         </div>
+
+
+
+        <!-- RECENTLY ADDED -->
 
         <div class="col-md-4">
 
             <div class="stat-card recent-card">
 
+
                 <div class="card-icon">
+
                     <i class="fa-solid fa-clock"></i>
+
                 </div>
 
+
                 <div>
-                    <h5>Recently Added</h5>
-                    <h2 th:text="${recentRecords}"></h2>
+
+                    <h5>
+                        Recently Added
+                    </h5>
+
+                    <h2 th:text="${recentRecords}">
+                    </h2>
+
                 </div>
+
 
             </div>
 
         </div>
 
+
     </div>
-	
-	
 
-	<!-- ==========================
-	     STUDENTS BY CITY CHART
-	========================== -->
 
-	<div class="row mt-4 justify-content-center">
 
-		<div class="col-lg-6 col-md-8">
+    <!-- =====================================================
+         STUDENTS BY CITY CHART
+         ===================================================== -->
 
-	        <div class="card chart-card shadow-sm">
+    <div class="row mt-4 justify-content-center">
 
-	            <div class="card-header bg-white border-0">
 
-	                <h5 class="mb-0">
-	                    <i class="fa-solid fa-chart-pie text-primary"></i>
-	                    Students by City
-	                </h5>
+        <div class="col-lg-6 col-md-8">
 
-	            </div>
 
-	            <div class="card-body">
+            <div class="card chart-card shadow-sm">
 
-	                <div class="chart-container">
 
-	                    <canvas id="cityChart"></canvas>
+                <!-- CHART HEADER -->
 
-	                </div>
+                <div class="card-header bg-white border-0">
 
-	            </div>
 
-	        </div>
+                    <h5 class="mb-0">
 
-	    </div>
+                        <i class="fa-solid fa-chart-pie text-primary"></i>
 
-	</div>
-	
+                        Students by City
 
-    <!-- Footer -->
+                    </h5>
+
+
+                </div>
+
+
+
+                <!-- CHART BODY -->
+
+                <div class="card-body">
+
+
+                    <div class="chart-container">
+
+                        <canvas id="cityChart"></canvas>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
     <footer class="footer">
+
 
         <div class="footer-content">
 
+
+            <!-- FOOTER LEFT -->
+
             <div class="footer-left">
+
                 <i class="fa-solid fa-user-graduate"></i>
-                <span>Student Management System</span>
+
+                <span>
+                    Student Management System
+                </span>
+
             </div>
+
+
+
+            <!-- FOOTER CENTER -->
 
             <div class="footer-center">
+
                 © 2026 All Rights Reserved
+
             </div>
 
+
+
+            <!-- FOOTER RIGHT -->
+
             <div class="footer-right">
-                Developed by <strong>Pooja Chougule</strong>
+
+                Developed by
+
+                <strong>
+                    Pooja Chougule
+                </strong>
+
             </div>
+
 
         </div>
 
+
     </footer>
+
 
 </div>
 
 
-<!-- Pass Java data to JavaScript -->
+
+<!-- =====================================================
+     PASS JAVA DATA TO JAVASCRIPT
+     ===================================================== -->
+
 <script th:inline="javascript">
+
     const cityData = /*[[${cityData}]]*/ [];
+
     console.log("City Data:", cityData);
+
 </script>
 
-<!-- Chart.js Library -->
+
+
+<!-- =====================================================
+     CHART.JS
+     ===================================================== -->
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<!-- Your JavaScript -->
+
+
+<!-- =====================================================
+     EXISTING DASHBOARD JAVASCRIPT
+     ===================================================== -->
+
 <script th:src="@{/js/dashboard.js}"></script>
 
+
 </body>
+
 </html>

@@ -1320,3 +1320,164 @@ body {
     }
 
 }
+/* =====================================================
+   AI STUDENT ASSISTANT
+   ===================================================== */
+
+.ai-assistant-section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.ai-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 28px;
+    border: 1px solid #e6eaf0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+
+/* AI HEADER */
+
+.ai-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.ai-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef4ff;
+    font-size: 27px;
+}
+
+.ai-header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #17233c;
+}
+
+.ai-header p {
+    margin: 5px 0 0;
+    color: #718096;
+    font-size: 14px;
+}
+
+
+/* INPUT AREA */
+
+.ai-input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#aiQuestion {
+    width: 100%;
+    min-height: 110px;
+    padding: 15px 16px;
+    border: 1px solid #dce2eb;
+    border-radius: 12px;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 15px;
+    color: #17233c;
+    background: #fafbfc;
+    outline: none;
+    box-sizing: border-box;
+    transition: 0.2s ease;
+}
+
+#aiQuestion:focus {
+    border-color: #3b82f6;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.10);
+}
+
+#aiQuestion::placeholder {
+    color: #9aa5b5;
+}
+
+
+/* ASK AI BUTTON */
+
+#aiButton {
+    align-self: flex-start;
+    border: none;
+    border-radius: 10px;
+    padding: 11px 22px;
+    background: #2563eb;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#aiButton:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+#aiButton:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* LOADING */
+
+.ai-loading {
+    margin-top: 18px;
+    padding: 12px 15px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* AI RESPONSE */
+
+.ai-response {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 14px;
+    background: #f7f9fc;
+    border: 1px solid #e2e8f0;
+    color: #263449;
+    font-size: 15px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .ai-card {
+        padding: 20px;
+    }
+
+    .ai-header {
+        align-items: flex-start;
+    }
+
+    .ai-header h2 {
+        font-size: 19px;
+    }
+
+    #aiButton {
+        width: 100%;
+    }
+
+}
