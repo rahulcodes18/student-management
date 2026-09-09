@@ -1,639 +1,480 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
 
+body {
+    min-height: 100vh;
+    background: #f5f7fb;
+    color: #1e293b;
+}
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI', Arial, sans-serif;
+.container {
+    display: flex;
 }
 
 
-body{
+/* =========================================================
+   SIDEBAR
+========================================================= */
 
-    min-height:100vh;
-    background:blue;
-	
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
 
+    background: #111827;
+    padding: 28px 16px;
+
+    box-shadow: 4px 0 20px rgba(15, 23, 42, 0.12);
+    z-index: 100;
+}
+
+.logo h2 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 38px;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu li {
+    margin-bottom: 8px;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 13px 16px;
+
+    color: #cbd5e1;
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: all 0.25s ease;
+}
+
+.menu a i {
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.menu a:hover {
+    background: #1e293b;
+    color: #ffffff;
+    transform: translateX(2px);
+}
+
+.menu .active a {
+    background: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 5px 14px rgba(37, 99, 235, 0.25);
 }
 
 
-/* ================= SIDEBAR ================= */
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
 
-
-.container{
-
-    display:flex;
-
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 28px;
 }
 
 
+/* =========================================================
+   TOPBAR
+========================================================= */
 
-.sidebar{
+.topbar {
+    background: #ffffff;
 
-    width:280px;
+    padding: 18px 22px;
 
-    height:100vh;
+    border-radius: 16px;
 
-    position:fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    left:0;
+    border: 1px solid #e5e7eb;
 
-    top:0;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+}
 
-    /*background:#1E293B;*/
-	background: green;
+.welcome h1 {
+    color: #0f172a;
+    font-size: 26px;
+    font-weight: 700;
+}
 
-    padding:25px 15px;
-
-    box-shadow:4px 0 15px rgba(0,0,0,.15);
-
+.welcome p {
+    color: #64748b;
+    margin-top: 5px;
+    font-size: 14px;
 }
 
 
+/* =========================================================
+   HEADER RIGHT
+========================================================= */
 
-.logo h2{
-
-    color:white;
-
-    text-align:center;
-
-    margin-bottom:35px;
-
-    font-size:22px;
-
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
 }
-
-
-
-.menu{
-
-    list-style:none;
-
-}
-
-
-
-.menu li{
-
-    margin-bottom:10px;
-
-}
-
-
-
-.menu a{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    padding:14px 18px;
-
-    color:#E2E8F0;
-
-    text-decoration:none;
-
-    border-radius:10px;
-
-    transition:.3s;
-
-}
-
-
-
-.menu a i{
-
-    width:20px;
-
-}
-
-
-
-.menu a:hover,
-.menu .active a{
-
-    background:#3B82F6;
-
-    color:white;
-
-}
-
-
-
-/* ================= MAIN ================= */
-
-
-.main-content{
-
-    margin-left:280px;
-
-    width:calc(100% - 280px);
-
-    padding:25px;
-
-}
-
-
-
-/* ================= TOPBAR ================= */
-
-
-.topbar{
-
-    background:white;
-
-    padding:20px 25px;
-
-    border-radius:18px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    box-shadow:0 5px 18px rgba(0,0,0,.08);
-
-}
-
-
-
-.welcome h1{
-
-    color:#1E293B;
-
-    font-size:28px;
-
-}
-
-
-
-.welcome p{
-
-    color:#64748B;
-
-    margin-top:5px;
-
-}
-
-
-
-/* RIGHT HEADER */
-
-
-.header-right{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-}
-
 
 
 /* Notification */
 
+.notification {
+    width: 42px;
+    height: 42px;
 
-.notification{
+    border-radius: 10px;
 
-    width:42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    height:42px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
 
-    border-radius:50%;
+    cursor: pointer;
 
-    display:flex;
+    transition: all 0.2s ease;
+}
 
-    align-items:center;
+.notification:hover {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+}
 
-    justify-content:center;
-
-    background:#F1F5F9;
-
+.notification i {
+    font-size: 18px;
+    color: #475569;
 }
 
 
+/* =========================================================
+   USER INFO
+========================================================= */
 
-.notification i{
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
 
-    font-size:20px;
+.profile-avatar {
+    width: 46px;
+    height: 46px;
 
-    color:#334155;
+    border-radius: 50%;
+    overflow: hidden;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e2e8f0;
+
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+}
+
+.profile-avatar img,
+.profile-img {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-avatar i {
+    font-size: 21px;
+    color: #64748b;
+}
+
+.profile-details h4 {
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #0f172a;
+}
+
+.profile-details small {
+    color: #64748b;
+    font-size: 12px;
 }
 
 
+/* =========================================================
+   DASHBOARD CARDS
+========================================================= */
 
-/* USER */
+.cards {
+    margin-top: 26px;
 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 
-.user-info{
+    gap: 20px;
+}
 
-    display:flex;
+.card {
+    background: #ffffff;
 
-    align-items:center;
+    padding: 22px;
 
-    gap:12px;
+    border-radius: 16px;
 
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+
+    transition: all 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.09);
+}
+
+.card-icon {
+    width: 54px;
+    height: 54px;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+}
+
+.card-icon i {
+    font-size: 22px;
+}
+
+.blue {
+    background: #2563eb;
+}
+
+.green {
+    background: #10b981;
+}
+
+.orange {
+    background: #f97316;
+}
+
+.purple {
+    background: #8b5cf6;
+}
+
+.card-content h4 {
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.card-content h2 {
+    color: #0f172a;
+    margin-top: 5px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.department-text {
+    font-size: 17px;
 }
 
 
+/* =========================================================
+   SIDEBAR FOOTER
+========================================================= */
 
-.profile-avatar{
+.sidebar-footer {
+    position: absolute;
+    bottom: 20px;
+    width: calc(100% - 32px);
 
+    text-align: center;
 
-    width:45px;
-
-    height:45px;
-
-
-    border-radius:50%;
-
-
-    overflow:hidden;
-
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-
-    background:#E2E8F0;
-
-
+    color: #64748b;
+    font-size: 12px;
 }
 
 
+/* =========================================================
+   AI ASSISTANT BUTTON
+========================================================= */
 
-.profile-avatar img{
-
-
-    width:45px;
-
-    height:45px;
-
-
-    object-fit:cover;
-
-
-    border-radius:50%;
-
-
-}
-
-
-
-.profile-avatar i{
-
-    font-size:22px;
-
-    color:#64748B;
-
-}
-
-
-
-.profile-details h4{
-
-    margin:0;
-
-    font-size:15px;
-
-    color:#1E293B;
-
-}
-
-
-
-.profile-details small{
-
-    color:#64748B;
-
-}
-
-
-
-/* ================= CARDS ================= */
-
-
-.cards{
-
-
-    margin-top:30px;
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:25px;
-
-}
-
-
-
-.card{
-
-
-    background:white;
-
-    padding:25px;
-
-    border-radius:20px;
-
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-
-
-    transition:.3s;
-
-}
-
-
-
-.card:hover{
-
-    transform:translateY(-5px);
-
-}
-
-
-
-.card-icon{
-
-
-    width:60px;
-
-    height:60px;
-
-
-    border-radius:50%;
-
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-
-    color:white;
-
-}
-
-
-
-.card-icon i{
-
-    font-size:25px;
-
-}
-
-
-
-.blue{
-
-    background:#3B82F6;
-
-}
-
-
-.green{
-
-    background:#10B981;
-
-}
-
-
-.orange{
-
-    background:#F97316;
-
-}
-
-
-.purple{
-
-    background:#8B5CF6;
-
-}
-
-
-
-.card-content h4{
-
-    color:#64748B;
-
-    font-size:14px;
-
-}
-
-
-
-.card-content h2{
-
-    color:#1E293B;
-
-    margin-top:5px;
-
-}
-
-
-
-.department-text{
-
-    font-size:18px;
-
-}
-
-
-
-
-
-/* ================= SIDEBAR FOOTER ================= */
-
-
-.sidebar-footer{
-
-    position:absolute;
-
-    bottom:20px;
-
-    width:100%;
-
-    text-align:center;
-
-    color:#CBD5E1;
-
-    font-size:13px;
-
-}
-
-
-
-/* ================= RESPONSIVE ================= */
-
-
-@media(max-width:1100px){
-
-
-.cards{
-
-    grid-template-columns:repeat(2,1fr);
-
-}
-
-
-}
-
-
-
-@media(max-width:768px){
-
-
-.sidebar{
-
-    width:90px;
-
-}
-
-
-.logo h2{
-
-    font-size:12px;
-
-}
-
-
-
-.menu span{
-
-    display:none;
-
-}
-
-
-
-.main-content{
-
-    margin-left:90px;
-
-    width:calc(100% - 90px);
-
-}
-
-
-
-.topbar{
-
-    flex-direction:column;
-
-    gap:20px;
-
-    align-items:flex-start;
-
-}
-
-
-
-.cards{
-
-    grid-template-columns:1fr;
-
-}
-
-
-}
-
-
-/* ===============================
-   PROFILE IMAGE
-================================ */
-.profile-avatar{
-
-    width:50px !important;
-    height:50px !important;
-
-    border-radius:50% !important;
-
-    overflow:hidden !important;
-
-    display:flex !important;
-
-    align-items:center !important;
-
-    justify-content:center !important;
-
-}
-
-
-.profile-img{
-
-    width:50px !important;
-    height:50px !important;
-
-    border-radius:50% !important;
-
-    object-fit:cover !important;
-
-}
-
-
-/* ===============================
-   PROFILE IMAGE
-================================ */
-.profile-avatar{
-
-    width:50px !important;
-    height:50px !important;
-
-    border-radius:50% !important;
-
-    overflow:hidden !important;
-
-    display:flex !important;
-
-    align-items:center !important;
-
-    justify-content:center !important;
-
-}
-
-
-.profile-img{
-
-    width:50px !important;
-    height:50px !important;
-
-    border-radius:50% !important;
-
-    object-fit:cover !important;
-
-}
 .ai-button {
     display: block;
+
     margin-top: 10px;
+
     padding: 12px 15px;
+
     background: #2563eb;
-    color: white !important;
+    color: #ffffff !important;
+
     text-decoration: none;
-    border-radius: 8px;
+
+    border-radius: 10px;
+
     font-weight: 600;
+    font-size: 14px;
+
+    text-align: center;
+
+    transition: all 0.25s ease;
+
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.18);
 }
 
 .ai-button:hover {
     background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 7px 16px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 78px;
+        padding: 22px 10px;
+    }
+
+    .logo h2 {
+        font-size: 11px;
+        margin-bottom: 30px;
+    }
+
+    .menu a {
+        justify-content: center;
+        padding: 13px 8px;
+    }
+
+    .menu span {
+        display: none;
+    }
+
+    .menu a i {
+        width: auto;
+        font-size: 18px;
+    }
+
+    .main-content {
+        margin-left: 78px;
+        width: calc(100% - 78px);
+        padding: 18px;
+    }
+
+    .topbar {
+        padding: 17px;
+        flex-direction: column;
+        gap: 17px;
+        align-items: flex-start;
+    }
+
+    .welcome h1 {
+        font-size: 22px;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .sidebar-footer {
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .main-content {
+        padding: 12px;
+    }
+
+    .topbar {
+        border-radius: 12px;
+    }
+
+    .profile-details {
+        display: none;
+    }
+
+    .welcome h1 {
+        font-size: 20px;
+    }
+
 }
